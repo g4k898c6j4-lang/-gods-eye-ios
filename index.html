@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="theme-color" content="#02050a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.json">
+<title>GOD'S EYE // iOS</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cesium@1.145.0/Build/Cesium/Widgets/widgets.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="cesiumContainer"></div>
+<div class="vignette"></div>
+<header>
+  <div>
+    <div class="logo">GOD'S EYE <span>// MOBILE</span></div>
+    <div class="live"><i></i><span id="connection">CONNECTING</span></div>
+  </div>
+  <button id="locate" class="round">⌖</button>
+</header>
+
+<div class="hud left">
+  <div class="hudTitle">SYSTEM</div>
+  <div class="row"><span>AIRCRAFT</span><b id="airCount">—</b></div>
+  <div class="row"><span>SATELLITES</span><b id="satCount">—</b></div>
+  <div class="row"><span>EARTHQUAKES</span><b id="quakeCount">—</b></div>
+  <div class="row"><span>UTC</span><b id="utc">--:--:--</b></div>
+</div>
+
+<div class="controls">
+  <button data-layer="air">✈ <span>FLIGHTS</span></button>
+  <button data-layer="sat">◉ <span>SATS</span></button>
+  <button data-layer="quake">◇ <span>QUAKES</span></button>
+</div>
+
+<div class="selected" id="selected">
+  <div class="tiny">SELECTED OBJECT</div>
+  <div id="selectedName">TAP AN OBJECT</div>
+  <div id="selectedMeta"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/cesium@1.145.0/Build/Cesium/Cesium.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/satellite.js@6.0.2/dist/satellite.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
