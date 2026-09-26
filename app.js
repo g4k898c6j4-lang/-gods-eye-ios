@@ -6,6 +6,12 @@ const quakes=new Cesium.CustomDataSource("earthquakes");
 
 async function boot(){
  viewer=new Cesium.Viewer("cesiumContainer",{animation:false,timeline:false,baseLayerPicker:false,geocoder:false,homeButton:false,navigationHelpButton:false,sceneModePicker:false,fullscreenButton:false,infoBox:false,selectionIndicator:false,terrainProvider:await Cesium.createWorldTerrainAsync()});
+
+ // iPhone/iPad Safari WebGL compatibility:
+ // Cesium's atmospheric scattering shader can fail to link on Apple's ANGLE/WebGL path.
+ // Disable the atmosphere passes while keeping the 3D globe and data layers.
+ if (viewer.scene.skyAtmosphere) viewer.scene.skyAtmosphere.show=false;
+ viewer.scene.globe.showGroundAtmosphere=false;
  viewer.scene.globe.enableLighting=true;
  viewer.scene.backgroundColor=Cesium.Color.fromCssColorString("#02050a");
  viewer.dataSources.add(air);viewer.dataSources.add(sats);viewer.dataSources.add(quakes);
